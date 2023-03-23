@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		BDCCAFAF29CB88B400B44A3B /* HPediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCAFAE29CB88B400B44A3B /* HPediaApp.swift */; };
-		BDCCAFB129CB88B400B44A3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCAFB029CB88B400B44A3B /* ContentView.swift */; };
+		BDCCAFB129CB88B400B44A3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCAFB029CB88B400B44A3B /* MainView.swift */; };
 		BDCCAFB329CB88B600B44A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCCAFB229CB88B600B44A3B /* Assets.xcassets */; };
 		BDCCAFB629CB88B600B44A3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCCAFB529CB88B600B44A3B /* Preview Assets.xcassets */; };
+		BDCCAFC029CC9AE600B44A3B /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCAFBF29CC9AE600B44A3B /* Character.swift */; };
+		BDCCAFC229CC9B5400B44A3B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCAFC129CC9B5400B44A3B /* CharacterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BDCCAFAB29CB88B400B44A3B /* HPedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCCAFAE29CB88B400B44A3B /* HPediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPediaApp.swift; sourceTree = "<group>"; };
-		BDCCAFB029CB88B400B44A3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BDCCAFB029CB88B400B44A3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BDCCAFB229CB88B600B44A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCCAFB529CB88B600B44A3B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDCCAFBF29CC9AE600B44A3B /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		BDCCAFC129CC9B5400B44A3B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,10 @@
 		BDCCAFAD29CB88B400B44A3B /* HPedia */ = {
 			isa = PBXGroup;
 			children = (
+				BDCCAFBE29CBD5EE00B44A3B /* ViewModels */,
+				BDCCAFBD29CBD5E400B44A3B /* Views */,
+				BDCCAFBC29CBD5DD00B44A3B /* Models */,
 				BDCCAFAE29CB88B400B44A3B /* HPediaApp.swift */,
-				BDCCAFB029CB88B400B44A3B /* ContentView.swift */,
 				BDCCAFB229CB88B600B44A3B /* Assets.xcassets */,
 				BDCCAFB429CB88B600B44A3B /* Preview Content */,
 			);
@@ -65,6 +71,30 @@
 				BDCCAFB529CB88B600B44A3B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDCCAFBC29CBD5DD00B44A3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCAFBF29CC9AE600B44A3B /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BDCCAFBD29CBD5E400B44A3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCAFB029CB88B400B44A3B /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDCCAFBE29CBD5EE00B44A3B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCAFC129CC9B5400B44A3B /* CharacterViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDCCAFB129CB88B400B44A3B /* ContentView.swift in Sources */,
+				BDCCAFC229CC9B5400B44A3B /* CharacterViewModel.swift in Sources */,
+				BDCCAFC029CC9AE600B44A3B /* Character.swift in Sources */,
+				BDCCAFB129CB88B400B44A3B /* MainView.swift in Sources */,
 				BDCCAFAF29CB88B400B44A3B /* HPediaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
