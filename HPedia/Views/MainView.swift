@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct MainView: View {
+    let characterViewModel = CharacterViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            CharactersView()
+                .tabItem {
+                    Label("Characters", systemImage: "person.fill")
+                }
+            
+            SpellsView()
+                .tabItem {
+                    Label("Spells", systemImage: "wand.and.stars")
+                }
         }
-        .padding()
+        .onAppear {
+            Task {
+                await characterViewModel.getAllCharacters()
+            }
+        }
     }
 }
 
