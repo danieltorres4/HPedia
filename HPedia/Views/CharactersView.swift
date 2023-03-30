@@ -33,58 +33,76 @@ struct CharactersView: View {
                                 ProgressView()
                             }
                             
-                            NavigationLink(character.name) {
-                                VStack {
-                                    AsyncImage(url: URL(string: character.image!)) { image in
-                                        image
-                                            .resizable()
-                                            .frame(width: 200, height: 240)
-                                            .scaledToFit()
-                                    } placeholder: {
-                                        ProgressView()
+                            VStack {
+                                Text(character.name)
+                                    .fontWidth(.expanded)
+                                    .bold()
+                                
+                                NavigationLink("More info ⚡️") {
+                                    VStack {
+                                        AsyncImage(url: URL(string: character.image!)) { image in
+                                            image
+                                                .resizable()
+                                                .frame(width: 200, height: 240)
+                                                .scaledToFit()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        
+                                        Text(character.name)
+                                            .font(.system(size: 35).width(.expanded))
+                                            .bold()
+                                        
+                                        Text("Actor: \(character.actor ?? "Unknown")")
+                                            .font(.headline.width(.condensed))
+                                            .foregroundColor(.gray)
+                                        
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.black)
+                                        
+                                        Text("Date of birth: \(character.dateOfBirth ?? "Unkown")")
+                                            .font(.system(size: 20).width(.condensed))
+                                            .padding()
+                                        
+                                        Text("Wand")
+                                            .font(.system(size: 20).width(.condensed))
+                                            .padding()
+                                            .overlay(alignment: .bottomTrailing) {
+                                                Button {
+                                                    print("Wand details")
+                                                    isPresented = true
+                                                } label: {
+                                                    HStack {
+                                                        Image(systemName: "plus.circle.fill")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .tint(.black)
+                                                            .frame(width: 15)
+                                                    }
+                                                }
+                                                .alert(isPresented: $isPresented, content: {
+                                                    Alert(title: Text("Wand Info"),
+                                                          message: Text("Wood: \(character.wand?.wood ?? "No Wood")\nCore: \(character.wand?.core ?? "No Core")\nLength: \(character.wand?.length ?? 0.0)"),
+                                                          primaryButton: Alert.Button.default(Text("Ok")),
+                                                          secondaryButton: Alert.Button.destructive(Text("Dismiss")))
+                                                })
+
+                                            }
+                                        
+                                        Text("Ancestry: \(character.ancestry ?? "Unkown")")
+                                            .font(.system(size: 20).width(.condensed))
+                                        
+                                        Text("Patronus: \(character.patronus ?? "Unkown")")
+                                            .font(.system(size: 20).width(.condensed))
+                                             
+                                        Text("House: \(character.house ?? "Unkown")")
+                                            .font(.system(size: 20).width(.condensed))
                                     }
-                                    
-                                    Text(character.name)
-                                        .font(.system(size: 35).width(.expanded))
-                                        .bold()
-                                    
-                                    Text("Actor: \(character.actor ?? "Unknown")")
-                                        .font(.headline.width(.condensed))
-                                        .foregroundColor(.gray)
-                                    
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .foregroundColor(.black)
-                                    
-                                    Text("Date of birth: \(character.dateOfBirth ?? "Unkown")")
-                                        .font(.system(size: 20).width(.condensed))
-                                        .padding()
-                                    
-                                    Button("Wand") {
-                                        isPresented = true
-                                    }
-                                        .alert(isPresented: $isPresented, content: {
-                                            Alert(title: Text("Wand Info"),
-                                                  message: Text("Wood: \(character.wand?.wood ?? "No Wood")\nCore: \(character.wand?.core ?? "No Core")\nLength: \(character.wand?.length ?? 0.0)"),
-                                                  primaryButton: Alert.Button.default(Text("Ok")),
-                                                  secondaryButton: Alert.Button.destructive(Text("Dismiss")))
-                                        })
-                                        .font(.system(size: 20).width(.condensed))
-                                        .padding()
-                                    
-                                    Text("Ancestry: \(character.ancestry ?? "Unkown")")
-                                        .font(.system(size: 20).width(.condensed))
-                                    
-                                    Text("Patronus: \(character.patronus ?? "Unkown")")
-                                        .font(.system(size: 20).width(.condensed))
-                                         
-                                    Text("House: \(character.house ?? "Unkown")")
-                                        .font(.system(size: 20).width(.condensed))
+                                    .padding(32)
                                 }
-                                .padding(32)
+                                .fontWidth(.compressed)
                             }
-                            .fontWidth(.expanded)
-                            .bold()
                         }
                         .padding()
                     }
