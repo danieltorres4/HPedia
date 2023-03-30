@@ -45,11 +45,19 @@ struct CharactersView: View {
                                     }
                                     
                                     Text(character.name)
-                                        .font(.largeTitle)
+                                        .font(.system(size: 35).width(.expanded))
                                         .bold()
-                                        .padding()
+                                    
+                                    Text("Actor: \(character.actor ?? "Unknown")")
+                                        .font(.headline.width(.condensed))
+                                        .foregroundColor(.gray)
+                                    
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundColor(.black)
                                     
                                     Text("Date of birth: \(character.dateOfBirth ?? "Unkown")")
+                                        .font(.system(size: 20).width(.condensed))
                                         .padding()
                                     
                                     Button("Wand") {
@@ -61,19 +69,22 @@ struct CharactersView: View {
                                                   primaryButton: Alert.Button.default(Text("Ok")),
                                                   secondaryButton: Alert.Button.destructive(Text("Dismiss")))
                                         })
+                                        .font(.system(size: 20).width(.condensed))
                                         .padding()
                                     
                                     Text("Ancestry: \(character.ancestry ?? "Unkown")")
+                                        .font(.system(size: 20).width(.condensed))
                                     
                                     Text("Patronus: \(character.patronus ?? "Unkown")")
+                                        .font(.system(size: 20).width(.condensed))
                                          
                                     Text("House: \(character.house ?? "Unkown")")
-                                        .padding(.bottom)
-                                    
-                                    Text("Actor: \(character.actor ?? "Unknown")")
-                                        .font(.headline)
+                                        .font(.system(size: 20).width(.condensed))
                                 }
+                                .padding(32)
                             }
+                            .fontWidth(.expanded)
+                            .bold()
                         }
                         .padding()
                     }

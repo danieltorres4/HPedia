@@ -31,10 +31,10 @@ struct SpellsView: View {
                             
                             VStack {
                                 Text(spell.name ?? "No name")
-                                    .font(.title)
+                                    .font(.title2.width(.expanded))
                                     .padding()
                                 Text(spell.description ?? "Unknown")
-                                    .font(.headline)
+                                    .font(.headline.width(.condensed))
                                     .padding()
                             }
                         }
