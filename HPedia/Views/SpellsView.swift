@@ -12,14 +12,8 @@ struct SpellsView: View {
     @State var spellToSearch: String = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                Button("Reset") {
-                    
-                }
-                .padding()
-                .buttonStyle(.bordered)
-                
                 Form {
                     ForEach(spellViewModel.spells, id: \.id) { spell in
                         HStack {
@@ -43,6 +37,13 @@ struct SpellsView: View {
                 }
             }
             .navigationTitle("Spells ⚡️")
+            .toolbar {
+                ToolbarItem {
+                    Button("Reset") {
+                        
+                    }
+                }
+            }
         }
         .searchable(text: $spellToSearch, prompt: Text("Search a spell"))
         .textInputAutocapitalization(.never)

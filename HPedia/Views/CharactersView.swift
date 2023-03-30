@@ -13,13 +13,9 @@ struct CharactersView: View {
     @State var isPresented: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                Button("Reset") {
-                    
-                }
-                .padding()
-                .buttonStyle(.bordered)
+                
                 
                 Form {
                     ForEach(characterViewModel.characters, id: \.id) { character in
@@ -84,8 +80,7 @@ struct CharactersView: View {
                                                 .alert(isPresented: $isPresented, content: {
                                                     Alert(title: Text("Wand Info"),
                                                           message: Text("Wood: \(character.wand?.wood ?? "No Wood")\nCore: \(character.wand?.core ?? "No Core")\nLength: \(character.wand?.length ?? 0.0)"),
-                                                          primaryButton: Alert.Button.default(Text("Ok")),
-                                                          secondaryButton: Alert.Button.destructive(Text("Dismiss")))
+                                                          dismissButton: .default(Text("OK")))
                                                 })
 
                                             }
@@ -109,6 +104,13 @@ struct CharactersView: View {
                 }
             }
             .navigationTitle("All Characters ⚡️")
+            .toolbar {
+                ToolbarItem {
+                    Button("Reset") {
+                        print("Reset Button")
+                    }
+                }
+            }
         }
         .searchable(text: $characterToSearch, prompt: Text("Search a character"))
         .textInputAutocapitalization(.never)
